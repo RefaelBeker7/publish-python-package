@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.1'
+VERSION = '0.0.2'
 DESCRIPTION = 'A conversion package'
 LONG_DESCRIPTION = 'A package that makes it easy to convert values between several units of measurement'
 
 setup(
-    name="pypi_package",
+    name="publish_pypi_package",
     version=VERSION,
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
@@ -18,6 +18,6 @@ setup(
     classifiers= [
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
-        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3"
     ]
 )
