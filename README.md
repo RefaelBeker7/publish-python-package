@@ -32,6 +32,8 @@ python setup.py sdist bdist_wheel
 run the script while still in the virtual Python environment.
 
 ## Using the publish Python package
+https://pypi.org/project/publish-pypi-package/
+
 > pip searches for the package files in the official Python Package Index, on pypi.org.
 
 > Installing Python pip on your system allows you to manage PyPI packages easily.
