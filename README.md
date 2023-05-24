@@ -28,7 +28,7 @@ python setup.py sdist bdist_wheel
 
 > If need update then run: python -m pip install --upgrade py_package
 
-4. Use the python script file named test.py,
+4. Use the python script named `tests/test_tempertaure.py`,
 run the script while still in the virtual Python environment.
 
 ## Using the publish Python package
@@ -36,7 +36,7 @@ run the script while still in the virtual Python environment.
 
 > Installing Python pip on your system allows you to manage PyPI packages easily.
 
-1. There are two installation options, via test pypi or via pypi. </br>Both work and have been tested successfully. </br>
+- There are two installation options, via test pypi or via pypi. </br>Both work and have been tested successfully. </br>
 The way to use:
 ```
 ## Test PyPi - test.pypi.org
@@ -45,4 +45,4 @@ python -m pip install --upgrade --index-url https://test.pypi.org/simple publish
 ## PyPi - pypi.org
 python -m pip install publish_pypi_package
 ```
-- Run the test.py script
+- Run the tests/test_tempertaure.py script
