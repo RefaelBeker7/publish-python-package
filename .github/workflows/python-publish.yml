@@ -36,7 +36,7 @@ jobs:
       run: python -m build
     - name: Test package
       run: |
-        pipenv install publish_pypi_package-0.0.2-py3-none-any.whl
+        pipenv install .\dist\publish_pypi_package-0.0.2-py3-none-any.whl
         pipenv run pytest
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
