@@ -1,1 +1,1 @@
-from .temperature import c2f, f2c, hello
+from .temperature import c2f, f2c, hello, new_release
