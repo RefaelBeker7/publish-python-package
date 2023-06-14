@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.1.22'
+VERSION = '0.1.23'
 DESCRIPTION = 'A conversion package'
 LONG_DESCRIPTION = 'A package that makes it easy to convert values between several units of measurement'
 
