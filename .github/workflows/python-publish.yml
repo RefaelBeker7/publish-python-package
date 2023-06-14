@@ -16,8 +16,9 @@ permissions:
   contents: read
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  build-n-publish:
+    name: Build and publish Python 🐍 distributions 📦 to PyPI and TestPyPI
+    runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v3
@@ -28,19 +29,25 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install build
-        python -m pip install --upgrade pip setuptools wheel
-        python setup.py sdist bdist_wheel
+        python -m pip install setuptools wheel twine
     - name: Build package
-      run: python -m build
-    - name: Installation package
-      run: python -m pip install dist/publish_pypi_package-0.0.5-py3-none-any.whl
+      run: python -m setup.py sdist bdist_wheel
     - name: Test package
       run: |
         python -m pip install pytest
-        pytest
-    - name: Publish package
-      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
+        python -m pytest
+    - name: Publish distribution 📦 to Test PyPI
+      env:
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }}
+      run: |
+        python setup.py sdist bdist_wheel
+        twine upload dist/*
+    - name: Publish distribution 📦 to PyPI
+      env:
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+      run: |
+        python setup.py sdist bdist_wheel
+        twine upload dist/*
+   

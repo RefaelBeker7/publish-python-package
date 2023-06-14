@@ -1,5 +1,5 @@
 venv
-dist
+dist/
 *.egg-info
-build
+build/
 .pypirc
