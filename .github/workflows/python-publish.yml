@@ -37,12 +37,14 @@ jobs:
         python -m pip install pytest
         python -m pytest
     - name: Publish distribution 📦 to Test PyPI
-      with:
-        user: __token__
-        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-      run: twine upload dist/*
+      env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }}
+          TWINE_REPOSITORY: testpypi
+      run: python -m twine upload dist/*
     - name: Publish distribution 📦 to PyPI
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
-      run: twine upload dist/*
+      env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+          TWINE_REPOSITORY: pypi
+      run: python twine upload dist/*
